@@ -19,8 +19,7 @@
     "koa-onerror": "^1.2.1",
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
-    "nunjucks": "~3.0.0 ",
-    "xilife-design-test": "^1.0.0"
+    "nunjucks": "~3.0.0 "
   },
   "devDependencies": {
     "eslint": "^5.9.0",

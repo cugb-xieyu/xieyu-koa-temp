@@ -1,6 +1,5 @@
 const nodepath = require('path')
 const Nunjucks = require('nunjucks')
-const { XButtonStyle, XButtonPrimary, XButtonGhost } = require('xilife-design-test')
 
 class Template {
   constructor (path = '/views', opts) {
@@ -43,15 +42,9 @@ class Template {
     return env
   }
 
-  addDesignElement (env) {
-    env.addGlobal('XButtonStyle', XButtonStyle)
-    env.addGlobal('XButtonPrimary', XButtonPrimary)
-    env.addGlobal('XButtonGhost', XButtonGhost)
-  }
-
   connect (app) {
     let env = this.createNjk()
-    this.addDesignElement(env)
+    // this.addDesignElement(env)
     app.context.render = function (view, model) {
       this.response.body = env.render(view, Object.assign({}, this.state || {}, model || {}))
       this.response.type = 'text/html'

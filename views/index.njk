@@ -1,42 +1,8 @@
 {% extends './layout.njk' %}
 
 {% block head %}
-  {{
-    XButtonStyle() | safe
-  }}
+
 {% endblock %}
 {% block content %}
-  <div style="margin: 18px 0 0;">
-    {{ 
-      (
-        XButtonPrimary('主按钮', {className: ''}) +
-        XButtonPrimary('主按钮', {className: 'active'}) +
-        XButtonPrimary('主按钮', {disabled: ''})
-      )
-      |
-      safe 
-    }}
-  </div>
-  <div style="margin: 18px 0 0;">
-    {{
-      (
-        XButtonGhost('主按钮', {className: ''}) +
-        XButtonGhost('主按钮', {className: 'active'}) +
-        XButtonGhost('主按钮', {disabled: ''})
-      )
-      |
-      safe 
-    }}
-  </div>
-  <div style="margin: 18px 0 0;">
-    {{
-      (
-        XButtonGhost('+ 主按钮', {className: ''}) +
-        XButtonGhost('+ 主按钮', {className: 'active'}) +
-        XButtonGhost('+ 主按钮', {disabled: ''})
-      )
-      |
-      safe 
-    }}
-  </div>
+  <div>Koa demo</div>
 {% endblock %}
