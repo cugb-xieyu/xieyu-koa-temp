@@ -10,12 +10,16 @@ const path = require('path')
 
 global.APP_ROOT = path.resolve(__dirname, './')
 
-global.APP_MODE = process.env.NODE_ENV || 'dev'
+let APP_MODE = process.env.NODE_ENV || 'dev'
 
-if (global.APP_MODE === 'production') {
-  global.API_ROOT = 'https://xeo2.xique.com:8001'
-  global.Test_STATIC_BASE = 'https://xeo2.xique.com:8081/images/NDC'
+let ROOTS = {}
+
+if (APP_MODE === 'production') {
+  ROOTS.API_ROOT = 'http://my.data.com:8000'
+  ROOTS.STATIC_ROOT = 'http://my.data.com:8001'
 } else {
-  global.API_ROOT = 'http://192.168.16.150:8000'
-  global.Test_STATIC_BASE = 'http://192.168.16.150:8080/images/NDC'
+  ROOTS.API_ROOT = 'http://localhost:8000'
+  ROOTS.STATIC_ROOT = 'http://localhost:8001'
 }
+
+module.exports = ROOTS

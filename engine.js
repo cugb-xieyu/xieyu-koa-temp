@@ -1,5 +1,6 @@
 const nodepath = require('path')
 const Nunjucks = require('nunjucks')
+const { API_ROOT, STATIC_ROOT } = require('./config')
 
 class Template {
   constructor (path = '/views', opts) {
@@ -43,13 +44,13 @@ class Template {
   }
 
   addVariables (env) {
-    const demoparam = 1
-    env.addGlobal('demoparam', demoparam)
+    env.addGlobal('API_ROOT', API_ROOT)
+    env.addGlobal('STATIC_ROOT', STATIC_ROOT)
   }
 
   connect (app) {
     let env = this.createNjk()
-    // this.addVariables(env)
+    this.addVariables(env)
     app.context.render = function (view, model) {
       this.response.body = env.render(view, Object.assign({}, this.state || {}, model || {}))
       this.response.type = 'text/html'
