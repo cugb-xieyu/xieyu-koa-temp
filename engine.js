@@ -42,9 +42,14 @@ class Template {
     return env
   }
 
+  addVariables (env) {
+    const param = 1
+    env.addGlobal('param', param)
+  }
+
   connect (app) {
     let env = this.createNjk()
-    // this.addDesignElement(env)
+    // this.addVariables(env)
     app.context.render = function (view, model) {
       this.response.body = env.render(view, Object.assign({}, this.state || {}, model || {}))
       this.response.type = 'text/html'
