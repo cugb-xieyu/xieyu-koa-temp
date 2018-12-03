@@ -44,7 +44,7 @@ class Template {
 
   addVariables (env) {
     const demoparam = 1
-    env.addGlobal('param', demoparam)
+    env.addGlobal('demoparam', demoparam)
   }
 
   connect (app) {
